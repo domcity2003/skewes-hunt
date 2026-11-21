@@ -16,6 +16,18 @@ ALPHAS = np.sort(np.r_[np.geomspace(5e11, 4e13, 25), 6e12])
 CUTOFFS = (1_131_944.4719, 2_546_000, 4_646_000, 6_746_000, 8_846_000, 10_379_600)
 
 
+def accumulate(total, ordinates, centers, alphas):
+    for begin in range(0, len(ordinates), 250_000):
+        batch = ordinates[begin:begin + 250_000]
+        rho = 0.5 + 1j * batch
+        phase = np.multiply.outer(centers - TARGET, batch)
+        phase += np.remainder(batch * TARGET, 2 * np.pi)
+        coefficient = 2 / rho + np.multiply.outer(1 / centers, 2 / rho**2)
+        terms = coefficient.real * np.cos(phase) - coefficient.imag * np.sin(phase)
+        weights = np.exp(np.multiply.outer(batch**2, -0.5 / alphas))
+        total -= terms @ weights
+
+
 def scan(zeros):
     centers = np.r_[TARGET + np.linspace(-3e-7, 3e-7, 25), CONTROL]
     budgets = np.maximum(ENDPOINT - centers - 1e-12, 4e-6 * (centers == CONTROL))
@@ -26,15 +38,7 @@ def scan(zeros):
         if cutoff >= zeros[-1]:
             break
         stop = np.searchsorted(zeros, cutoff, side="right")
-        for begin in range(start, stop, 250_000):
-            ordinates = zeros[begin:min(begin + 250_000, stop)]
-            rho = 0.5 + 1j * ordinates
-            reduced = np.remainder(ordinates * TARGET, 2 * np.pi)
-            phase = reduced + np.multiply.outer(centers - TARGET, ordinates)
-            coefficient = 2 / rho + np.multiply.outer(1 / centers, 2 / rho**2)
-            terms = (coefficient.real * np.cos(phase) - coefficient.imag * np.sin(phase))
-            weights = np.exp(np.multiply.outer(ordinates**2, -0.5 / ALPHAS))
-            total -= terms @ weights
+        accumulate(total, zeros[start:stop], centers, ALPHAS)
         start = stop
         if cutoff == 10_379_600:
             control = total[-1, np.searchsorted(ALPHAS, 6e12)]

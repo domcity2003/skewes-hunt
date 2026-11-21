@@ -6,9 +6,22 @@ The [finite-height calculation](unconditional-bound.md) places a crossover at or
 
 ## Next experiment
 
-Smith's Section 10 reports a signal near `727.951332982` using about 100 billion zeros, with an error allowance larger than the signal. The thesis does not report the parameters or raw margin for that run. Recover those values if available. They would tell us how much of the error we need to remove and which term to target. [Smith, Section 10](https://etheses.whiterose.ac.uk/16409/1/The%20hunt%20for%20Skewes%27%20number.pdf)
+Smith's Section 10 reports a signal near `727.951332982` using about 100 billion zeros, with an error allowance larger than the signal. The thesis does not report the parameters or raw margin for that run. A search of the public thesis deposit and indexed code did not turn up a run log. Those values would tell us how much of the error we need to remove and which term to target. [Smith, Section 10](https://etheses.whiterose.ac.uk/16409/1/The%20hunt%20for%20Skewes%27%20number.pdf)
 
-In parallel, extend the 22-million-zero sweep with consecutive LMFDB blocks. Accumulate the sums and checkpoint at increasing cutoffs so a run can be resumed. Start by reproducing the known positive control, then track the raw signal and omitted-zero allowance separately at the earlier target. For the Gaussian bound used in the first pass, a raw sum above `1.002763` clears the prime-side threshold used in the replay. A proof still needs a positive lower bound after all errors, including rounding and the omitted tail. If a candidate clears that test in a floating-point scan, replay it with interval arithmetic on the original Platt ordinates and document the input checksums. [LMFDB data](https://www.lmfdb.org/zeros/zeta/) · [Revers's explicit bounds](https://arxiv.org/html/2501.04488v2#S3)
+The [resumable sweep](stream_sweep.py) reads consecutive LMFDB files, verifies their checksums and block continuity, and saves the accumulated sums after each file. It checks the positive control at exactly 22 million zeros, inside a file. At each cutoff it records the weighted zero sum and each of Revers's error terms, including the omitted-zero allowance `R4`. This uses Revers's prime-side bound at every center. A candidate with a positive exploratory margin would need interval arithmetic on the original Platt ordinates. [LMFDB data](https://www.lmfdb.org/zeros/zeta/) · [Revers's explicit bounds](https://arxiv.org/html/2501.04488v2#S3)
+
+The file names and MD5 digests used in the experiment are recorded in [stream-sweep.json](stream-sweep.json). Download the files from the LMFDB bulk archive into `data/platt` and save the [manifest](https://beta.lmfdb.org/data/riemann-zeta-zeros/md5.txt) as `data/platt-md5.txt`. Use the ending height of the last downloaded file for `--through`. The checkpoint stays in `data/`. Rerun the command with a higher ending height after adding the next consecutive files. One OpenBLAS thread ran faster on the Windows machine used here.
+
+```powershell
+$env:OPENBLAS_NUM_THREADS = '1'
+python stream_sweep.py data/platt data/platt-md5.txt data/stream-checkpoint.json stream-sweep.json --through 65546000
+```
+
+The November 21, 2026 run (Codex / GPT-6) reached 158,152,688 zeros in 35 files, testing 25 centers and 50 Gaussian widths. The 22-million-zero control returned `1.002889274491` with a positive full-RH margin. The highest raw sum across all early-target checkpoints was `1.002313399511`, below the prime-side threshold of about `1.002762685`. At the final cutoff, the best finite-height margin was `-0.0008806563` at the named target. The omitted-zero allowance `R4` in that row was `0.0000848369`, smaller than the raw deficit of about `0.000794271`. The scan used float64 arithmetic and leaves the earlier crossover unresolved.
+
+An independent evaluation using the explicit sine and cosine formula agreed at the 99,480,453-zero checkpoint within `1.4e-10`. The decoder matched the previous 23,293,070 ordinates bit for bit, and replaying the completed checkpoint reproduced the report byte for byte.
+
+At the early target, reusing the smoothing `alpha = 4.5e19` and cutoff `T = 30610046000` from Smith's confirmed interval gives a screening threshold of about `1.002772957` for the weighted sum. This uses the largest trial window allowed by the endpoint target and Revers's finite-height bound with `A = 2e11`. The earlier run's smoothing, cutoff, and sum remain unknown. [Smith, Section 9](https://etheses.whiterose.ac.uk/id/eprint/16409/) · [Revers, Theorem 3.1](https://arxiv.org/html/2501.04488v2#S3)
 
 ## Reproduce the first pass
 
