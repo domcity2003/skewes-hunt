@@ -1,8 +1,8 @@
 # Skewes crossover search
 
-Started November 20, 2026 (US Central) with Codex / GPT-6. The target is a proof that the actual prime count exceeds the logarithmic integral somewhere below Smith's thesis bound, `log(x) = 727.9513354023`. The logarithm is natural except in the Table 5 scan.
+Started November 20, 2026 (US Central) with Codex / GPT-6. The project looks for earlier points where the actual prime count exceeds the logarithmic integral. The logarithm is natural except in the Table 5 scan.
 
-The [finite-height calculation](unconditional-bound.md) places a crossover at or below `log(x) = 727.95133540685` using Smith and Platt's published zero sum. The arithmetic can be replayed locally. The source zero sum and literature priority still need independent review.
+The [tapered Gaussian calculation](tapered-bound.md) places a crossover at or below `log(x) = 727.95133540208`, just below Smith's thesis endpoint `727.9513354023`. Run `python tapered.py` to replay the interval arithmetic. The estimate uses the published zero sum and critical-line verification to height three trillion. The source sum, derivation, and literature priority still need independent review. The [first finite-height calculation](unconditional-bound.md) used a hard cutoff and gave `727.95133540685`.
 
 ## Next experiment
 

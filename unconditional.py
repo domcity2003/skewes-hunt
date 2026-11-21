@@ -13,6 +13,19 @@ PUBLISHED_FINITE_HEIGHT = 3_000_000_000_000
 HALF_WIDTH = "0.00000000585"
 
 
+def common_errors(w, low, high, alpha, t):
+    """Bounds from Revers (5.2), (5.5), and (5.6) for mass at most one."""
+    b = iv.mpf
+    log2 = iv.log(2)
+    r1 = 2 / low + 8 / low**2 + b("58.56") / low**3
+    r1 += log2 * high * iv.exp(-low / 2) + 2 * high * iv.exp(-low / 6) / log2
+    r4 = iv.exp(-t**2 / (2 * alpha)) * (1 + 1 / (w * t)) * (
+        alpha / (iv.pi * t**2) * iv.log(t / (2 * iv.pi)) + 8 * iv.log(t) / t + 4 * alpha / t**3
+    )
+    r5 = b("0.003") / low**2
+    return r1, r4, r5
+
+
 def revers_errors(eta):
     """Enclose R1 through R6 of Revers, arXiv:2501.04488v2, Theorem 3.1."""
     b = iv.mpf
@@ -22,19 +35,13 @@ def revers_errors(eta):
             and 2 * iv.pi * iv.exp(1) < t < a < PUBLISHED_FINITE_HEIGHT):
         raise ValueError("Revers's hypotheses failed")
     root = iv.sqrt(alpha)
-    log2 = iv.log(2)
     gaussian = iv.exp(-alpha * eta**2 / 2)
     reciprocal = 1 / eta
     if not reciprocal < b("0.082") * alpha:
         raise ValueError("Unexpected minimum in R2")
-    r1 = 2 / low + 8 / low**2 + b("58.56") / low**3
-    r1 += log2 * high * iv.exp(-low / 2) + 2 * high * iv.exp(-low / 6) / log2
+    r1, r4, r5 = common_errors(w, low, high, alpha, t)
     r2 = b("0.037") / (w * root) * (reciprocal * gaussian + (1 - gaussian) / low)
     r3 = b("0.074") * root * gaussian
-    r4 = iv.exp(-t**2 / (2 * alpha)) * (1 + 1 / (w * t)) * (
-        alpha / (iv.pi * t**2) * iv.log(t / (2 * iv.pi)) + 8 * iv.log(t) / t + 4 * alpha / t**3
-    )
-    r5 = b("0.003") / low**2
     r6 = (1 + 22 / (a * w)) * a * iv.log(a) * (
         b("8.283") / a * iv.exp(-alpha * eta**2 / 4 + high / 2)
         + b("7.152") * eta * iv.exp(-a**2 / (2 * alpha) + high / 2)
