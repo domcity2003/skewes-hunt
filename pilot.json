@@ -1,0 +1,86 @@
+{
+  "source": "zeros6.gz",
+  "available_zeros": 2001052,
+  "arithmetic": "float64 exploratory",
+  "benchmark": {
+    "zero_sum": -1.0065534324392549,
+    "difference_from_revers": 4.634970007799666e-08,
+    "margins_using_finite_height_rh": {
+      "0.00016": 0.0004095906575988361,
+      "0.0001061": 0.00014743077676814854,
+      "0.000106": -0.00012435391502328697
+    }
+  },
+  "table5_scan": [
+    {
+      "table5_log10_x": 41.6522,
+      "best_sample_log10_x": 41.652204,
+      "score_at_one_million": -0.06407844938034746
+    },
+    {
+      "table5_log10_x": 84.7316,
+      "best_sample_log10_x": 84.73155013333334,
+      "score_at_one_million": -0.06114179876464876
+    },
+    {
+      "table5_log10_x": 136.0262,
+      "best_sample_log10_x": 136.02623893333333,
+      "score_at_one_million": -0.11133748711651692
+    },
+    {
+      "table5_log10_x": 154.9746,
+      "best_sample_log10_x": 154.97456533333335,
+      "score_at_one_million": -0.1412471926162756
+    },
+    {
+      "table5_log10_x": 157.8305,
+      "best_sample_log10_x": 157.83046933333335,
+      "score_at_one_million": -0.15116971264196666
+    },
+    {
+      "table5_log10_x": 175.9619,
+      "best_sample_log10_x": 175.9619026666667,
+      "score_at_one_million": -0.0867661408496
+    },
+    {
+      "table5_log10_x": 179.0999,
+      "best_sample_log10_x": 179.09986506666667,
+      "score_at_one_million": -0.03810980321847157
+    },
+    {
+      "table5_log10_x": 190.1264,
+      "best_sample_log10_x": 190.12643866666664,
+      "score_at_one_million": -0.031142143513501086
+    },
+    {
+      "table5_log10_x": 214.2382,
+      "best_sample_log10_x": 214.23816773333334,
+      "score_at_one_million": -0.11817322757350635
+    },
+    {
+      "table5_log10_x": 259.9694,
+      "best_sample_log10_x": 259.96944186666667,
+      "score_at_one_million": -0.06365154894079117
+    },
+    {
+      "table5_log10_x": 275.7852,
+      "best_sample_log10_x": 275.7852957333333,
+      "score_at_one_million": -0.1485402729449442
+    },
+    {
+      "table5_log10_x": 298.0048,
+      "best_sample_log10_x": 298.00477413333334,
+      "score_at_one_million": -0.10022237448508375
+    },
+    {
+      "table5_log10_x": 314.0808,
+      "best_sample_log10_x": 314.0807509333333,
+      "score_at_one_million": -0.1197720227995559
+    },
+    {
+      "table5_log10_x": 316.1456,
+      "best_sample_log10_x": 316.1455752,
+      "score_at_one_million": 0.019126299492613796
+    }
+  ]
+}

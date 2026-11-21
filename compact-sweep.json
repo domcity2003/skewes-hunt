@@ -1,0 +1,74 @@
+{
+  "cutoff": 10379600,
+  "zero_count": 22000000,
+  "weight_half_width": 2.1e-06,
+  "center_count": 13,
+  "assumption": "RH",
+  "arithmetic": "float64 screening",
+  "results": [
+    {
+      "order": 3,
+      "center": 727.9513332820001,
+      "zero_sum": 0.9997959801071433,
+      "tail_allowance": 0.0006692872535383891,
+      "prime_cost": 1.00276268504255,
+      "margin_estimate": -0.0036359976994651748
+    },
+    {
+      "order": 4,
+      "center": 727.9513332820001,
+      "zero_sum": 1.0000195633185427,
+      "tail_allowance": 0.0002583371486571325,
+      "prime_cost": 1.00276268504255,
+      "margin_estimate": -0.0030014643831845485
+    },
+    {
+      "order": 5,
+      "center": 727.951333232,
+      "zero_sum": 1.0001894122337571,
+      "tail_allowance": 0.00013284488681890408,
+      "prime_cost": 1.002762685042741,
+      "margin_estimate": -0.0027061232063228468
+    },
+    {
+      "order": 6,
+      "center": 727.951333232,
+      "zero_sum": 1.0003208070866418,
+      "tail_allowance": 8.683379629980737e-05,
+      "prime_cost": 1.002762685042741,
+      "margin_estimate": -0.002528717262919036
+    },
+    {
+      "order": 7,
+      "center": 727.9513331820001,
+      "zero_sum": 1.0004273660348038,
+      "tail_allowance": 6.986747931928649e-05,
+      "prime_cost": 1.0027626850429314,
+      "margin_estimate": -0.0024051919979671136
+    },
+    {
+      "order": 8,
+      "center": 727.9513331820001,
+      "zero_sum": 1.0005130378965883,
+      "tail_allowance": 6.759891022605822e-05,
+      "prime_cost": 1.0027626850429314,
+      "margin_estimate": -0.002317251567089343
+    },
+    {
+      "order": 9,
+      "center": 727.9513331820001,
+      "zero_sum": 1.0005829922019902,
+      "tail_allowance": 7.725322492884703e-05,
+      "prime_cost": 1.0027626850429314,
+      "margin_estimate": -0.002256951576390223
+    },
+    {
+      "order": 10,
+      "center": 727.9513331320001,
+      "zero_sum": 1.00064194987403,
+      "tail_allowance": 0.00010281435931162254,
+      "prime_cost": 1.0027626850431224,
+      "margin_estimate": -0.0022235550389241745
+    }
+  ]
+}

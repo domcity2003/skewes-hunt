@@ -1,0 +1,943 @@
+{
+  "assumption": "full Riemann hypothesis",
+  "smith_upper_log_x": "727.9513354023",
+  "arithmetic": "exact for shard recombination and eta-independent exclusion; float64 for margins",
+  "turing_count_source": "published Teal Sea report, not recomputed",
+  "grid_centers": 83,
+  "recombined_zero_count": 22000000,
+  "centers_before_smith": 33,
+  "centers_before_smith_ruled_out_at_any_eta": 33,
+  "continuous_exclusion": {
+    "lower_log_x": "727.951333792",
+    "upper_log_x": "727.9513354023",
+    "upper_bound_on_best_possible_margin": "-393582308869707756116098111/363975667701150000000000000000",
+    "upper_bound_approx": -0.0010813423637781932,
+    "rules_out_positive_lower_bound_at_any_eta": true
+  },
+  "earliest_estimated_positive_at_fixed_eta": {
+    "omega": "727.951335792",
+    "zero_sum_interval_approx": [
+      -1.0028892753837064,
+      -1.0028892732541534
+    ],
+    "eta": "0.000004",
+    "upper_log_x": "727.951339792",
+    "estimated_margin_full_rh": 9.456201601379778e-05,
+    "rules_out_positive_lower_bound_at_any_eta": false
+  },
+  "grid": [
+    {
+      "omega": "727.951333792",
+      "zero_sum_interval_approx": [
+        -0.9996740808960113,
+        -0.9996740787118488
+      ],
+      "eta": "0.000004",
+      "upper_log_x": "727.951337792",
+      "estimated_margin_full_rh": -0.0031206325339235242,
+      "rules_out_positive_lower_bound_at_any_eta": true
+    },
+    {
+      "omega": "727.951333842",
+      "zero_sum_interval_approx": [
+        -0.9995406356800344,
+        -0.9995406337113056
+      ],
+      "eta": "0.000004",
+      "upper_log_x": "727.951337842",
+      "estimated_margin_full_rh": -0.003254077534275839,
+      "rules_out_positive_lower_bound_at_any_eta": true
+    },
+    {
+      "omega": "727.951333892",
+      "zero_sum_interval_approx": [
+        -0.9994044237348998,
+        -0.9994044215703002
+      ],
+      "eta": "0.000004",
+      "upper_log_x": "727.951337892",
+      "estimated_margin_full_rh": -0.003390289675090477,
+      "rules_out_positive_lower_bound_at_any_eta": true
+    },
+    {
+      "omega": "727.951333942",
+      "zero_sum_interval_approx": [
+        -0.9992668305684069,
+        -0.9992668284427331
+      ],
+      "eta": "0.000004",
+      "upper_log_x": "727.951337942",
+      "estimated_margin_full_rh": -0.003527882802466776,
+      "rules_out_positive_lower_bound_at_any_eta": true
+    },
+    {
+      "omega": "727.951333992",
+      "zero_sum_interval_approx": [
+        -0.9991295098536771,
+        -0.999129507650703
+      ],
+      "eta": "0.000004",
+      "upper_log_x": "727.951337992",
+      "estimated_margin_full_rh": -0.003665203594306065,
+      "rules_out_positive_lower_bound_at_any_eta": true
+    },
+    {
+      "omega": "727.951334042",
+      "zero_sum_interval_approx": [
+        -0.9989943995926178,
+        -0.9989943975984622
+      ],
+      "eta": "0.000004",
+      "upper_log_x": "727.951338042",
+      "estimated_margin_full_rh": -0.003800313646356009,
+      "rules_out_positive_lower_bound_at_any_eta": true
+    },
+    {
+      "omega": "727.951334092",
+      "zero_sum_interval_approx": [
+        -0.9988637175453952,
+        -0.9988637151434249
+      ],
+      "eta": "0.000004",
+      "upper_log_x": "727.951338092",
+      "estimated_margin_full_rh": -0.003930996101202527,
+      "rules_out_positive_lower_bound_at_any_eta": true
+    },
+    {
+      "omega": "727.951334142",
+      "zero_sum_interval_approx": [
+        -0.9987399274547306,
+        -0.9987399255428494
+      ],
+      "eta": "0.000004",
+      "upper_log_x": "727.951338142",
+      "estimated_margin_full_rh": -0.004054785701587175,
+      "rules_out_positive_lower_bound_at_any_eta": true
+    },
+    {
+      "omega": "727.951334192",
+      "zero_sum_interval_approx": [
+        -0.9986256824859098,
+        -0.9986256801714103
+      ],
+      "eta": "0.000004",
+      "upper_log_x": "727.951338192",
+      "estimated_margin_full_rh": -0.004169031072835474,
+      "rules_out_positive_lower_bound_at_any_eta": true
+    },
+    {
+      "omega": "727.951334242",
+      "zero_sum_interval_approx": [
+        -0.998523738852823,
+        -0.998523736762577
+      ],
+      "eta": "0.000004",
+      "upper_log_x": "727.951338242",
+      "estimated_margin_full_rh": -0.0042709744814779516,
+      "rules_out_positive_lower_bound_at_any_eta": true
+    },
+    {
+      "omega": "727.951334292",
+      "zero_sum_interval_approx": [
+        -0.9984368540711441,
+        -0.9984368520228759
+      ],
+      "eta": "0.000004",
+      "upper_log_x": "727.951338292",
+      "estimated_margin_full_rh": -0.004357859220988223,
+      "rules_out_positive_lower_bound_at_any_eta": true
+    },
+    {
+      "omega": "727.951334342",
+      "zero_sum_interval_approx": [
+        -0.9983676638010447,
+        -0.9983676619281153
+      ],
+      "eta": "0.000004",
+      "upper_log_x": "727.951338342",
+      "estimated_margin_full_rh": -0.004427049315557992,
+      "rules_out_positive_lower_bound_at_any_eta": true
+    },
+    {
+      "omega": "727.951334392",
+      "zero_sum_interval_approx": [
+        -0.9983185615795247,
+        -0.9983185593203352
+      ],
+      "eta": "0.000004",
+      "upper_log_x": "727.951338392",
+      "estimated_margin_full_rh": -0.004476151923147302,
+      "rules_out_positive_lower_bound_at_any_eta": true
+    },
+    {
+      "omega": "727.951334442",
+      "zero_sum_interval_approx": [
+        -0.998291576206468,
+        -0.998291574031272
+      ],
+      "eta": "0.000004",
+      "upper_log_x": "727.951338442",
+      "estimated_margin_full_rh": -0.004503137212019683,
+      "rules_out_positive_lower_bound_at_any_eta": true
+    },
+    {
+      "omega": "727.951334492",
+      "zero_sum_interval_approx": [
+        -0.9982882705785325,
+        -0.9982882685360476
+      ],
+      "eta": "0.000004",
+      "upper_log_x": "727.951338492",
+      "estimated_margin_full_rh": -0.004506442707053293,
+      "rules_out_positive_lower_bound_at_any_eta": true
+    },
+    {
+      "omega": "727.951334542",
+      "zero_sum_interval_approx": [
+        -0.9983096580848564,
+        -0.9983096556397836
+      ],
+      "eta": "0.000004",
+      "upper_log_x": "727.951338542",
+      "estimated_margin_full_rh": -0.004485055603126472,
+      "rules_out_positive_lower_bound_at_any_eta": true
+    },
+    {
+      "omega": "727.951334592",
+      "zero_sum_interval_approx": [
+        -0.9983561518871172,
+        -0.9983561499296028
+      ],
+      "eta": "0.000004",
+      "upper_log_x": "727.951338592",
+      "estimated_margin_full_rh": -0.00443856131311648,
+      "rules_out_positive_lower_bound_at_any_eta": true
+    },
+    {
+      "omega": "727.951334642",
+      "zero_sum_interval_approx": [
+        -0.9984275500108308,
+        -0.9984275476666692
+      ],
+      "eta": "0.000004",
+      "upper_log_x": "727.951338642",
+      "estimated_margin_full_rh": -0.004367163575859228,
+      "rules_out_positive_lower_bound_at_any_eta": true
+    },
+    {
+      "omega": "727.951334692",
+      "zero_sum_interval_approx": [
+        -0.9985230480361521,
+        -0.9985230456918479
+      ],
+      "eta": "0.000004",
+      "upper_log_x": "727.951338692",
+      "estimated_margin_full_rh": -0.004271665550489692,
+      "rules_out_positive_lower_bound_at_any_eta": true
+    },
+    {
+      "omega": "727.951334742",
+      "zero_sum_interval_approx": [
+        -0.998641295217239,
+        -0.9986412933948411
+      ],
+      "eta": "0.000004",
+      "upper_log_x": "727.951338742",
+      "estimated_margin_full_rh": -0.004153417847305697,
+      "rules_out_positive_lower_bound_at_any_eta": true
+    },
+    {
+      "omega": "727.951334792",
+      "zero_sum_interval_approx": [
+        -0.9987804666757121,
+        -0.998780464546468
+      ],
+      "eta": "0.000004",
+      "upper_log_x": "727.951338792",
+      "estimated_margin_full_rh": -0.004014246695488008,
+      "rules_out_positive_lower_bound_at_any_eta": true
+    },
+    {
+      "omega": "727.951334842",
+      "zero_sum_interval_approx": [
+        -0.9989383618177174,
+        -0.9989383598858026
+      ],
+      "eta": "0.000004",
+      "upper_log_x": "727.951338842",
+      "estimated_margin_full_rh": -0.0038563513559625577,
+      "rules_out_positive_lower_bound_at_any_eta": true
+    },
+    {
+      "omega": "727.951334892",
+      "zero_sum_interval_approx": [
+        -0.9991125153213011,
+        -0.9991125134704989
+      ],
+      "eta": "0.000004",
+      "upper_log_x": "727.951338892",
+      "estimated_margin_full_rh": -0.0036821977710754404,
+      "rules_out_positive_lower_bound_at_any_eta": true
+    },
+    {
+      "omega": "727.951334942",
+      "zero_sum_interval_approx": [
+        -0.9993003091969819,
+        -0.9993003072167982
+      ],
+      "eta": "0.000004",
+      "upper_log_x": "727.951338942",
+      "estimated_margin_full_rh": -0.0034944040245853325,
+      "rules_out_positive_lower_bound_at_any_eta": true
+    },
+    {
+      "omega": "727.951334992",
+      "zero_sum_interval_approx": [
+        -0.999499084673879,
+        -0.9994990826361609
+      ],
+      "eta": "0.000004",
+      "upper_log_x": "727.951338992",
+      "estimated_margin_full_rh": -0.0032956286050317652,
+      "rules_out_positive_lower_bound_at_any_eta": true
+    },
+    {
+      "omega": "727.951335042",
+      "zero_sum_interval_approx": [
+        -0.9997062450514135,
+        -0.9997062428569865
+      ],
+      "eta": "0.000004",
+      "upper_log_x": "727.951339042",
+      "estimated_margin_full_rh": -0.0030884683840153855,
+      "rules_out_positive_lower_bound_at_any_eta": true
+    },
+    {
+      "omega": "727.951335092",
+      "zero_sum_interval_approx": [
+        -0.9999193453413384,
+        -0.9999193431866816
+      ],
+      "eta": "0.000004",
+      "upper_log_x": "727.951339092",
+      "estimated_margin_full_rh": -0.002875368054129443,
+      "rules_out_positive_lower_bound_at_any_eta": true
+    },
+    {
+      "omega": "727.951335142",
+      "zero_sum_interval_approx": [
+        -1.0001361690778015,
+        -1.0001361670238385
+      ],
+      "eta": "0.000004",
+      "upper_log_x": "727.951339142",
+      "estimated_margin_full_rh": -0.002658544216781806,
+      "rules_out_positive_lower_bound_at_any_eta": true
+    },
+    {
+      "omega": "727.951335192",
+      "zero_sum_interval_approx": [
+        -1.0003547870393015,
+        -1.0003547847463385
+      ],
+      "eta": "0.000004",
+      "upper_log_x": "727.951339192",
+      "estimated_margin_full_rh": -0.002439926494090898,
+      "rules_out_positive_lower_bound_at_any_eta": true
+    },
+    {
+      "omega": "727.951335242",
+      "zero_sum_interval_approx": [
+        -1.0005736008357453,
+        -1.0005735987263746
+      ],
+      "eta": "0.000004",
+      "upper_log_x": "727.951339242",
+      "estimated_margin_full_rh": -0.0022211125138639895,
+      "rules_out_positive_lower_bound_at_any_eta": true
+    },
+    {
+      "omega": "727.951335292",
+      "zero_sum_interval_approx": [
+        -1.0007913740188104,
+        -1.0007913718612298
+      ],
+      "eta": "0.000004",
+      "upper_log_x": "727.951339292",
+      "estimated_margin_full_rh": -0.0020033393788180145,
+      "rules_out_positive_lower_bound_at_any_eta": true
+    },
+    {
+      "omega": "727.951335342",
+      "zero_sum_interval_approx": [
+        -1.0010072460039918,
+        -1.0010072439525284
+      ],
+      "eta": "0.000004",
+      "upper_log_x": "727.951339342",
+      "estimated_margin_full_rh": -0.0017874672873286123,
+      "rules_out_positive_lower_bound_at_any_eta": true
+    },
+    {
+      "omega": "727.951335392",
+      "zero_sum_interval_approx": [
+        -1.0012207330780405,
+        -1.0012207310427195
+      ],
+      "eta": "0.000004",
+      "upper_log_x": "727.951339392",
+      "estimated_margin_full_rh": -0.0015739801969467076,
+      "rules_out_positive_lower_bound_at_any_eta": true
+    },
+    {
+      "omega": "727.951335426",
+      "zero_sum_interval_approx": [
+        -1.001364468292005,
+        -1.0013644661029348
+      ],
+      "eta": "0.000004",
+      "upper_log_x": "727.951339426",
+      "estimated_margin_full_rh": -0.001430245136601586,
+      "rules_out_positive_lower_bound_at_any_eta": true
+    },
+    {
+      "omega": "727.951335442",
+      "zero_sum_interval_approx": [
+        -1.001431719041287,
+        -1.0014317171010931
+      ],
+      "eta": "0.000004",
+      "upper_log_x": "727.951339442",
+      "estimated_margin_full_rh": -0.0013629941383822286,
+      "rules_out_positive_lower_bound_at_any_eta": true
+    },
+    {
+      "omega": "727.951335492",
+      "zero_sum_interval_approx": [
+        -1.0016404306157376,
+        -1.0016404283888423
+      ],
+      "eta": "0.000004",
+      "upper_log_x": "727.951339492",
+      "estimated_margin_full_rh": -0.0011542828504422817,
+      "rules_out_positive_lower_bound_at_any_eta": true
+    },
+    {
+      "omega": "727.951335542",
+      "zero_sum_interval_approx": [
+        -1.0018474002851137,
+        -1.0018473983960865
+      ],
+      "eta": "0.000004",
+      "upper_log_x": "727.951339542",
+      "estimated_margin_full_rh": -0.0009473128430072318,
+      "rules_out_positive_lower_bound_at_any_eta": true
+    },
+    {
+      "omega": "727.951335592",
+      "zero_sum_interval_approx": [
+        -1.0020534203856262,
+        -1.002053418236574
+      ],
+      "eta": "0.000004",
+      "upper_log_x": "727.951339592",
+      "estimated_margin_full_rh": -0.0007412930023290116,
+      "rules_out_positive_lower_bound_at_any_eta": true
+    },
+    {
+      "omega": "727.951335642",
+      "zero_sum_interval_approx": [
+        -1.0022594804551797,
+        -1.0022594783229803
+      ],
+      "eta": "0.000004",
+      "upper_log_x": "727.951339642",
+      "estimated_margin_full_rh": -0.0005352329157317505,
+      "rules_out_positive_lower_bound_at_any_eta": true
+    },
+    {
+      "omega": "727.951335692",
+      "zero_sum_interval_approx": [
+        -1.0024667006856318,
+        -1.0024666987093682
+      ],
+      "eta": "0.000004",
+      "upper_log_x": "727.951339692",
+      "estimated_margin_full_rh": -0.00032801252915306027,
+      "rules_out_positive_lower_bound_at_any_eta": true
+    },
+    {
+      "omega": "727.951335742",
+      "zero_sum_interval_approx": [
+        -1.0026762524513104,
+        -1.0026762506402296
+      ],
+      "eta": "0.000004",
+      "upper_log_x": "727.951339742",
+      "estimated_margin_full_rh": -0.00011846059810088167,
+      "rules_out_positive_lower_bound_at_any_eta": true
+    },
+    {
+      "omega": "727.951335792",
+      "zero_sum_interval_approx": [
+        -1.0028892753837064,
+        -1.0028892732541534
+      ],
+      "eta": "0.000004",
+      "upper_log_x": "727.951339792",
+      "estimated_margin_full_rh": 9.456201601379778e-05,
+      "rules_out_positive_lower_bound_at_any_eta": false
+    },
+    {
+      "omega": "727.951335842",
+      "zero_sum_interval_approx": [
+        -1.0031067916804592,
+        -1.0031067893379206
+      ],
+      "eta": "0.000004",
+      "upper_log_x": "727.951339842",
+      "estimated_margin_full_rh": 0.0003120780999718029,
+      "rules_out_positive_lower_bound_at_any_eta": false
+    },
+    {
+      "omega": "727.951335892",
+      "zero_sum_interval_approx": [
+        -1.0033296173492523,
+        -1.0033296151475277
+      ],
+      "eta": "0.000004",
+      "upper_log_x": "727.951339892",
+      "estimated_margin_full_rh": 0.0005349039097697042,
+      "rules_out_positive_lower_bound_at_any_eta": false
+    },
+    {
+      "omega": "727.951335942",
+      "zero_sum_interval_approx": [
+        -1.0035582805824654,
+        -1.0035582784266546
+      ],
+      "eta": "0.000004",
+      "upper_log_x": "727.951339942",
+      "estimated_margin_full_rh": 0.0007635671890873713,
+      "rules_out_positive_lower_bound_at_any_eta": false
+    },
+    {
+      "omega": "727.951335992",
+      "zero_sum_interval_approx": [
+        -1.0037929400338224,
+        -1.0037929380164776
+      ],
+      "eta": "0.000004",
+      "upper_log_x": "727.951339992",
+      "estimated_margin_full_rh": 0.0009982267791012376,
+      "rules_out_positive_lower_bound_at_any_eta": false
+    },
+    {
+      "omega": "727.951336042",
+      "zero_sum_interval_approx": [
+        -1.0040333182340688,
+        -1.0040333160916912
+      ],
+      "eta": "0.000004",
+      "upper_log_x": "727.951340042",
+      "estimated_margin_full_rh": 0.001238604854505652,
+      "rules_out_positive_lower_bound_at_any_eta": false
+    },
+    {
+      "omega": "727.951336092",
+      "zero_sum_interval_approx": [
+        -1.004278638219761,
+        -1.004278636058599
+      ],
+      "eta": "0.000004",
+      "upper_log_x": "727.951340092",
+      "estimated_margin_full_rh": 0.0014839248216041547,
+      "rules_out_positive_lower_bound_at_any_eta": false
+    },
+    {
+      "omega": "727.951336142",
+      "zero_sum_interval_approx": [
+        -1.0045275825291498,
+        -1.0045275803896503
+      ],
+      "eta": "0.000004",
+      "upper_log_x": "727.951340142",
+      "estimated_margin_full_rh": 0.001732869152846352,
+      "rules_out_positive_lower_bound_at_any_eta": false
+    },
+    {
+      "omega": "727.951336192",
+      "zero_sum_interval_approx": [
+        -1.0047782611098486,
+        -1.0047782589239316
+      ],
+      "eta": "0.000004",
+      "upper_log_x": "727.951340192",
+      "estimated_margin_full_rh": 0.0019835476873184582,
+      "rules_out_positive_lower_bound_at_any_eta": false
+    },
+    {
+      "omega": "727.951336242",
+      "zero_sum_interval_approx": [
+        -1.005028207225473,
+        -1.0050282049986872
+      ],
+      "eta": "0.000004",
+      "upper_log_x": "727.951340242",
+      "estimated_margin_full_rh": 0.0022334937622648663,
+      "rules_out_positive_lower_bound_at_any_eta": false
+    },
+    {
+      "omega": "727.951336292",
+      "zero_sum_interval_approx": [
+        -1.0052743906218131,
+        -1.0052743884094069
+      ],
+      "eta": "0.000004",
+      "upper_log_x": "727.951340292",
+      "estimated_margin_full_rh": 0.0024796771731753734,
+      "rules_out_positive_lower_bound_at_any_eta": false
+    },
+    {
+      "omega": "727.951336342",
+      "zero_sum_interval_approx": [
+        -1.0055132626446344,
+        -1.0055132603665655
+      ],
+      "eta": "0.000004",
+      "upper_log_x": "727.951340342",
+      "estimated_margin_full_rh": 0.0027185491305248494,
+      "rules_out_positive_lower_bound_at_any_eta": false
+    },
+    {
+      "omega": "727.951336392",
+      "zero_sum_interval_approx": [
+        -1.005740828390191,
+        -1.005740826057449
+      ],
+      "eta": "0.000004",
+      "upper_log_x": "727.951340392",
+      "estimated_margin_full_rh": 0.002946114821599112,
+      "rules_out_positive_lower_bound_at_any_eta": false
+    },
+    {
+      "omega": "727.951336442",
+      "zero_sum_interval_approx": [
+        -1.0059527491254927,
+        -1.0059527470142473
+      ],
+      "eta": "0.000004",
+      "upper_log_x": "727.951340442",
+      "estimated_margin_full_rh": 0.0031580357785882672,
+      "rules_out_positive_lower_bound_at_any_eta": false
+    },
+    {
+      "omega": "727.951336492",
+      "zero_sum_interval_approx": [
+        -1.0061444761866267,
+        -1.0061444738478333
+      ],
+      "eta": "0.000004",
+      "upper_log_x": "727.951340492",
+      "estimated_margin_full_rh": 0.00334976261236512,
+      "rules_out_positive_lower_bound_at_any_eta": false
+    },
+    {
+      "omega": "727.951336542",
+      "zero_sum_interval_approx": [
+        -1.0063114110937486,
+        -1.0063114086760714
+      ],
+      "eta": "0.000004",
+      "upper_log_x": "727.951340542",
+      "estimated_margin_full_rh": 0.0035166974407939778,
+      "rules_out_positive_lower_bound_at_any_eta": false
+    },
+    {
+      "omega": "727.951336592",
+      "zero_sum_interval_approx": [
+        -1.006449088001216,
+        -1.0064490860142639
+      ],
+      "eta": "0.000004",
+      "upper_log_x": "727.951340592",
+      "estimated_margin_full_rh": 0.00365437477917727,
+      "rules_out_positive_lower_bound_at_any_eta": false
+    },
+    {
+      "omega": "727.951336642",
+      "zero_sum_interval_approx": [
+        -1.006553372103011,
+        -1.0065533701386888
+      ],
+      "eta": "0.000004",
+      "upper_log_x": "727.951340642",
+      "estimated_margin_full_rh": 0.0037586589037930667,
+      "rules_out_positive_lower_bound_at_any_eta": false
+    },
+    {
+      "omega": "727.951336692",
+      "zero_sum_interval_approx": [
+        -1.0066206560463076,
+        -1.0066206537328724
+      ],
+      "eta": "0.000004",
+      "upper_log_x": "727.951340692",
+      "estimated_margin_full_rh": 0.003825942498167392,
+      "rules_out_positive_lower_bound_at_any_eta": false
+    },
+    {
+      "omega": "727.951336742",
+      "zero_sum_interval_approx": [
+        -1.0066480531812716,
+        -1.0066480510788482
+      ],
+      "eta": "0.000004",
+      "upper_log_x": "727.951340742",
+      "estimated_margin_full_rh": 0.0038533398443341073,
+      "rules_out_positive_lower_bound_at_any_eta": false
+    },
+    {
+      "omega": "727.951336792",
+      "zero_sum_interval_approx": [
+        -1.006633564381374,
+        -1.0066335622201659
+      ],
+      "eta": "0.000004",
+      "upper_log_x": "727.951340792",
+      "estimated_margin_full_rh": 0.0038388509858425417,
+      "rules_out_positive_lower_bound_at_any_eta": false
+    },
+    {
+      "omega": "727.951336842",
+      "zero_sum_interval_approx": [
+        -1.0065762125946718,
+        -1.0065762104631282
+      ],
+      "eta": "0.000004",
+      "upper_log_x": "727.951340842",
+      "estimated_margin_full_rh": 0.003781499228995664,
+      "rules_out_positive_lower_bound_at_any_eta": false
+    },
+    {
+      "omega": "727.951336892",
+      "zero_sum_interval_approx": [
+        -1.0064761293630236,
+        -1.0064761270678364
+      ],
+      "eta": "0.000004",
+      "upper_log_x": "727.951340892",
+      "estimated_margin_full_rh": 0.003681415833894707,
+      "rules_out_positive_lower_bound_at_any_eta": false
+    },
+    {
+      "omega": "727.951336942",
+      "zero_sum_interval_approx": [
+        -1.006334583954859,
+        -1.006334581632941
+      ],
+      "eta": "0.000004",
+      "upper_log_x": "727.951340942",
+      "estimated_margin_full_rh": 0.0035398703991901055,
+      "rules_out_positive_lower_bound_at_any_eta": false
+    },
+    {
+      "omega": "727.951336992",
+      "zero_sum_interval_approx": [
+        -1.0061539562861759,
+        -1.006153954210764
+      ],
+      "eta": "0.000004",
+      "upper_log_x": "727.951340992",
+      "estimated_margin_full_rh": 0.003359242977203973,
+      "rules_out_positive_lower_bound_at_any_eta": false
+    },
+    {
+      "omega": "727.951337042",
+      "zero_sum_interval_approx": [
+        -1.0059376444073194,
+        -1.0059376424251207
+      ],
+      "eta": "0.000004",
+      "upper_log_x": "727.951341042",
+      "estimated_margin_full_rh": 0.0031429311917514917,
+      "rules_out_positive_lower_bound_at_any_eta": false
+    },
+    {
+      "omega": "727.951337092",
+      "zero_sum_interval_approx": [
+        -1.005689916657405,
+        -1.0056899144813551
+      ],
+      "eta": "0.000004",
+      "upper_log_x": "727.951341092",
+      "estimated_margin_full_rh": 0.0028952032481767112,
+      "rules_out_positive_lower_bound_at_any_eta": false
+    },
+    {
+      "omega": "727.951337142",
+      "zero_sum_interval_approx": [
+        -1.0054157148808165,
+        -1.0054157127061636
+      ],
+      "eta": "0.000004",
+      "upper_log_x": "727.951341142",
+      "estimated_margin_full_rh": 0.002621001473175976,
+      "rules_out_positive_lower_bound_at_any_eta": false
+    },
+    {
+      "omega": "727.951337192",
+      "zero_sum_interval_approx": [
+        -1.005120421395203,
+        -1.005120419442697
+      ],
+      "eta": "0.000004",
+      "upper_log_x": "727.951341192",
+      "estimated_margin_full_rh": 0.0023257082099002358,
+      "rules_out_positive_lower_bound_at_any_eta": false
+    },
+    {
+      "omega": "727.951337242",
+      "zero_sum_interval_approx": [
+        -1.0048096059200826,
+        -1.0048096034996175
+      ],
+      "eta": "0.000004",
+      "upper_log_x": "727.951341242",
+      "estimated_margin_full_rh": 0.002014892267011473,
+      "rules_out_positive_lower_bound_at_any_eta": false
+    },
+    {
+      "omega": "727.951337292",
+      "zero_sum_interval_approx": [
+        -1.0044887681105834,
+        -1.0044887662328366
+      ],
+      "eta": "0.000004",
+      "upper_log_x": "727.951341292",
+      "estimated_margin_full_rh": 0.0016940550004213959,
+      "rules_out_positive_lower_bound_at_any_eta": false
+    },
+    {
+      "omega": "727.951337342",
+      "zero_sum_interval_approx": [
+        -1.0041630964642592,
+        -1.0041630941603408
+      ],
+      "eta": "0.000004",
+      "upper_log_x": "727.951341342",
+      "estimated_margin_full_rh": 0.0013683829281164257,
+      "rules_out_positive_lower_bound_at_any_eta": false
+    },
+    {
+      "omega": "727.951337392",
+      "zero_sum_interval_approx": [
+        -1.0038372514375669,
+        -1.0038372493192131
+      ],
+      "eta": "0.000004",
+      "upper_log_x": "727.951341392",
+      "estimated_margin_full_rh": 0.0010425380871796103,
+      "rules_out_positive_lower_bound_at_any_eta": false
+    },
+    {
+      "omega": "727.951337442",
+      "zero_sum_interval_approx": [
+        -1.0035151989472335,
+        -1.0035151968999065
+      ],
+      "eta": "0.000004",
+      "upper_log_x": "727.951341442",
+      "estimated_margin_full_rh": 0.0007204856680638199,
+      "rules_out_positive_lower_bound_at_any_eta": false
+    },
+    {
+      "omega": "727.951337492",
+      "zero_sum_interval_approx": [
+        -1.0032000878763387,
+        -1.0032000857128214
+      ],
+      "eta": "0.000004",
+      "upper_log_x": "727.951341492",
+      "estimated_margin_full_rh": 0.00040537448116947667,
+      "rules_out_positive_lower_bound_at_any_eta": false
+    },
+    {
+      "omega": "727.951337542",
+      "zero_sum_interval_approx": [
+        -1.0028941890343377,
+        -1.0028941866737024
+      ],
+      "eta": "0.000004",
+      "upper_log_x": "727.951341542",
+      "estimated_margin_full_rh": 9.94754422413641e-05,
+      "rules_out_positive_lower_bound_at_any_eta": false
+    },
+    {
+      "omega": "727.951337592",
+      "zero_sum_interval_approx": [
+        -1.0025988878156775,
+        -1.0025988858078625
+      ],
+      "eta": "0.000004",
+      "upper_log_x": "727.951341592",
+      "estimated_margin_full_rh": -0.00019582542340777385,
+      "rules_out_positive_lower_bound_at_any_eta": true
+    },
+    {
+      "omega": "727.951337642",
+      "zero_sum_interval_approx": [
+        -1.0023147320544734,
+        -1.0023147301645468
+      ],
+      "eta": "0.000004",
+      "upper_log_x": "727.951341642",
+      "estimated_margin_full_rh": -0.0004799810665326999,
+      "rules_out_positive_lower_bound_at_any_eta": true
+    },
+    {
+      "omega": "727.951337692",
+      "zero_sum_interval_approx": [
+        -1.002041518866934,
+        -1.002041516743366
+      ],
+      "eta": "0.000004",
+      "upper_log_x": "727.951341692",
+      "estimated_margin_full_rh": -0.0007531944875225792,
+      "rules_out_positive_lower_bound_at_any_eta": true
+    },
+    {
+      "omega": "727.951337742",
+      "zero_sum_interval_approx": [
+        -1.0017784203934799,
+        -1.0017784184546001
+      ],
+      "eta": "0.000004",
+      "upper_log_x": "727.951341742",
+      "estimated_margin_full_rh": -0.0010162927760976807,
+      "rules_out_positive_lower_bound_at_any_eta": true
+    },
+    {
+      "omega": "727.951337792",
+      "zero_sum_interval_approx": [
+        -1.0015241275686821,
+        -1.001524125356618
+      ],
+      "eta": "0.000004",
+      "upper_log_x": "727.951341792",
+      "estimated_margin_full_rh": -0.001270585873888948,
+      "rules_out_positive_lower_bound_at_any_eta": true
+    },
+    {
+      "omega": "727.95134",
+      "zero_sum_interval_approx": [
+        -0.9906767218805625,
+        -0.9906767197395574
+      ],
+      "eta": "0.000004",
+      "upper_log_x": "727.951344",
+      "estimated_margin_full_rh": -0.012117991482523165,
+      "rules_out_positive_lower_bound_at_any_eta": true
+    }
+  ]
+}
