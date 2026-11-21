@@ -11,7 +11,7 @@ Let $\pi(x)$ count the primes up to $x$, and let $\operatorname{li}(x)$ be the l
 Using the published zero sum of Smith and Platt, the tapered Gaussian argument gives a point with $\pi(x)>\operatorname{li}(x)$ in the interval
 
 $$
-\boxed{727.95133539940 \;\leq\; \log x \;\leq\; 727.95133540208.}
+\boxed{727.95133539940 \leq \log x \leq 727.95133540208.}
 $$
 
 The right endpoint moves the upper bound for the first crossover earlier by $2.2\times10^{-10}$ on the log scale compared with Smith’s 2016 thesis. The argument uses the verified locations of zeta zeros through height $3\times10^{12}$ and bounds the contribution of higher zeros. [Smith, Theorem 9.1](https://etheses.whiterose.ac.uk/id/eprint/16409/) · [Platt and Trudgian, Theorem 1](https://arxiv.org/abs/2004.09765)
