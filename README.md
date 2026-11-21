@@ -1,46 +1,36 @@
-![The Skewes crossover. A comparison of the two intervals highlights that the tapered Gaussian candidate moves the right endpoint 0.22 billionths earlier on the log scale.](figures/crossover-intervals.png)
+# The Skewes crossover
 
 **Dominic Bavuso** · November 2026
 
-[Read the proof](tapered-bound.md) · [Reproduce the calculation](#reproduce-the-calculation) · [Explore the search](experiments.md)
+How early can we prove that the number of primes up to *x* exceeds its standard estimate, li(*x*)?
 
-## The result
+**Candidate result.** Using Smith and Platt’s published zero sum, the tapered Gaussian argument places a crossover in this range:
 
-Let $\pi(x)$ count the primes up to $x$, and let $\operatorname{li}(x)$ be the logarithmic integral, a smooth estimate of that count. How early can we prove the actual count overtakes the estimate?
+> **727.95133539940 ≤ log *x* ≤ 727.95133540208**
 
-Using the published zero sum of Smith and Platt, the tapered Gaussian argument gives a point with $\pi(x)>\operatorname{li}(x)$ in the interval
+The right endpoint is **0.22 billionths earlier on the log scale** than the one in Smith’s 2016 thesis. Each bar shows an interval with at least one crossover. Its right endpoint gives a latest possible location for the first crossover. [Smith, Theorem 9.1](https://etheses.whiterose.ac.uk/id/eprint/16409/)
 
-$$
-\boxed{727.95133539940 \leq \log x \leq 727.95133540208.}
-$$
+![On the log scale, Smith’s interval ends at an offset of +1.30 billionths and the tapered Gaussian interval ends at +1.08 billionths.](figures/crossover-intervals.png)
 
-The right endpoint moves the upper bound for the first crossover earlier by $2.2\times10^{-10}$ on the log scale compared with Smith’s 2016 thesis. The argument uses the verified locations of zeta zeros through height $3\times10^{12}$ and bounds the contribution of higher zeros. [Smith, Theorem 9.1](https://etheses.whiterose.ac.uk/id/eprint/16409/) · [Platt and Trudgian, Theorem 1](https://arxiv.org/abs/2004.09765)
+[Derivation](tapered-bound.md) · [Quick replay](#quick-replay) · [Full numerical audit](audit.md) · [Search notes](experiments.md)
 
-> [!NOTE]
-> **Verification status.** The interval replay passes using the published sum. An independent reconstruction of that sum, external review of the derivation, and a literature priority check remain open. The exact first crossover is unknown.
+## What’s verified
 
-## How the bound works
+The arithmetic replay passes with the published sum. The independent calculation of that sum from **103.8 billion zeta zeros** is underway. The derivation and literature priority still need external review. The exact first crossover remains open.
 
-The proof takes a weighted average of the difference between the real and estimated prime counts, rescaled by $\log(x)/\sqrt{x}$. The weight is nonnegative and fades smoothly to zero at both endpoints. The taper preserves most of the Gaussian zero sum and controls the contribution of very high zeros. A positive average forces at least one point in the interval to have $\pi(x)>\operatorname{li}(x)$. [Derivation and taper figure](tapered-bound.md) · [Revers’s explicit formula](https://arxiv.org/html/2501.04488v2#S4)
+The method takes a weighted average of the gap between the prime count and its estimate. The weight fades smoothly to zero at the ends of the interval, which lets the argument bound the effect of the highest zeros. A positive weighted average proves the gap is positive somewhere in the interval. [Derivation and taper figure](tapered-bound.md) · [Platt and Trudgian’s finite verification](https://arxiv.org/abs/2004.09765)
 
-## Reproduce the calculation
+## Quick replay
 
-With Python 3.12, run the interval replay to check the error budget against the published zero sum. It requires no zero-table downloads and certifies a positive margin greater than $3.26\times10^{-5}$ from the cited inputs.
+Run with Python 3.12. This checks the error budget against the published zero sum without downloading the archive. The positive margin exceeds **0.0000326**.
 
 ~~~sh
 python -m pip install mpmath
 python tapered.py
 ~~~
 
-The full audit sums **103,800,788,359** archived zeta zeros with an independent implementation. It verifies each input file and saves a checkpoint after processing it. [Full audit instructions](audit.md) · [LMFDB zero archive](https://www.lmfdb.org/zeros/zeta/)
-
-## Research notes
-
-| Note | What it covers |
+| Further reading | What it covers |
 | :--- | :--- |
-| [Tapered Gaussian bound](tapered-bound.md) | The weight, the error estimates, and the endpoint comparison |
-| [Independent numerical audit](audit.md) | Archive checks, arithmetic error bounds, and the resumable replay |
-| [Earlier crossover search](experiments.md) | A candidate at $\log x\approx727.951332982$ and the results from 158.2 million zeros |
-| [Lower-bound calculation](lower-bound.md) | A finite sieve excludes a short interval immediately above $10^{20}$ |
-
-Finding the exact first crossover would require excluding every earlier value. The gap between the verified lower range and the upper bound near $10^{316}$ remains open.
+| [Independent numerical audit](audit.md) | Input checks, rounding bounds, and a resumable replay of the full archive |
+| [Search experiments](experiments.md) | Tests of an earlier candidate using 158.2 million zeros |
+| [Lower-bound calculation](lower-bound.md) | A sieve that rules out a short interval just above 10<sup>20</sup> |

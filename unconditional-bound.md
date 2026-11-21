@@ -2,7 +2,7 @@
 
 **Dominic Bavuso** · November 20, 2026
 
-Using the published zero sum of Smith and Platt, there exists an $x$ with $\pi(x) > \operatorname{li}(x)$ and
+Using the published zero sum of Smith and Platt, there exists an $x$ with $\pi(x) > \mathrm{li}(x)$ and
 
 $$
 727.95133539515 \le \log x \le 727.95133540685.
@@ -21,6 +21,6 @@ I(\omega,\eta) \ge Z-1-\sum_{j=1}^6 R_j
 > 1.0028804978364-1-0.002775 > 0.0001.
 $$
 
-Every factor multiplying $\pi(e^u)-\operatorname{li}(e^u)$ in the defining integral is positive. Thus the difference is positive somewhere in $[\omega-\eta,\omega+\eta]$ on the log scale. The endpoints above are the exact decimal sum and difference. [Revers, Theorem 3.1](https://arxiv.org/html/2501.04488v2#S3)
+Every factor multiplying $\pi(e^u)-\mathrm{li}(e^u)$ in the defining integral is positive. Thus the difference is positive somewhere in $[\omega-\eta,\omega+\eta]$ on the log scale. The endpoints above are the exact decimal sum and difference. [Revers, Theorem 3.1](https://arxiv.org/html/2501.04488v2#S3)
 
 Run `python unconditional.py` with `mpmath` installed to reproduce both error checks. This proof uses Smith and Platt's tabulated zero sum as a published numerical input. The 103.8-billion-zero sum was not independently recomputed here. Literature priority and an independent mathematical review remain open.

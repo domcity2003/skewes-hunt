@@ -4,7 +4,7 @@
 
 ## Result
 
-Using the published zero sum of Smith and Platt, there exists an $x$ with $\pi(x)>\operatorname{li}(x)$ and
+Using the published zero sum of Smith and Platt, there exists an $x$ with $\pi(x)>\mathrm{li}(x)$ and
 
 $$
 727.95133539940\le \log x\le 727.95133540208.
@@ -58,7 +58,7 @@ These bounds use Revers's Lemmas 4.7(b) and 4.8 and both signs of each ordinate.
 
 Write $n=m-1=390$, $\lambda=2m/d$, and use $r=0.42\times10^{-9}$. The cutoff $C$ is the convolution of an interval indicator with $m$ uniform densities. Differentiating $j\le n$ different density factors gives signed measures of total variation $\lambda$ each, so $\|C^{(j)}\|_\infty\le\lambda^j$. At least one undifferentiated density remains. Translation continuity in $L^1$ for that density gives continuous derivatives after convolution with the bounded indicator. These derivatives are compactly supported, so the boundary terms through order $n-1$ vanish.
 
-For $|\gamma|>A$ let $F_\rho(z)=\rho z e^{-\rho z}\operatorname{li}(e^{\rho z})e^{-\alpha(z-\omega)^2/2}$ as in Revers §5.2. On each radius-$r$ disk centered at $u\in[l,b]$, $F_\rho$ is analytic by (4.11). In fact $|\operatorname{Im}(\rho z)|\ge|\gamma|\operatorname{Re}(z)-r$, and $r<l/5$, $A>4$ ensure $|\operatorname{Im}(\rho z)|\ge|\rho z|/2$. By (4.12) with one term,
+For $|\gamma|>A$ let $F_\rho(z)=\rho z e^{-\rho z}\mathrm{li}(e^{\rho z})e^{-\alpha(z-\omega)^2/2}$ as in Revers §5.2. On each radius-$r$ disk centered at $u\in[l,b]$, $F_\rho$ is analytic by (4.11). In fact $|\mathrm{Im}(\rho z)|\ge|\gamma|\mathrm{Re}(z)-r$, and $r<l/5$, $A>4$ ensure $|\mathrm{Im}(\rho z)|\ge|\rho z|/2$. By (4.12) with one term,
 
 $$
 |F_\rho(z)|\le B=\left(1+\frac4{A(l-r)}\right)e^{\alpha r^2/2}.
@@ -79,7 +79,7 @@ E_{\mathrm{high}}\le
 \left(\frac{\lambda}{A}\right)^n.
 $$
 
-This bound allows any real part $0<\operatorname{Re}\rho<1$ for the zeros above $A$. [Revers, Lemma 4.7 and §5.2](https://arxiv.org/html/2501.04488v2#S5.SS2)
+This bound allows any real part $0<\mathrm{Re}\rho<1$ for the zeros above $A$. [Revers, Lemma 4.7 and §5.2](https://arxiv.org/html/2501.04488v2#S5.SS2)
 
 ## Arithmetic check
 
@@ -88,7 +88,7 @@ The [interval replay](tapered.py) checks the following bound.
 $$
 \begin{aligned}
 I_W &:= \int_l^b W(u)\,u e^{-u/2}
-       \bigl(\pi(e^u)-\operatorname{li}(e^u)\bigr)\,du \\
+       \bigl(\pi(e^u)-\mathrm{li}(e^u)\bigr)\,du \\
     &\ge Z-1-R_1-R_4-R_5-E_{\mathrm{recip}}-E_{\mathrm{mass}}-E_{\mathrm{high}} \\
     &> 3.26\times10^{-5}.
 \end{aligned}

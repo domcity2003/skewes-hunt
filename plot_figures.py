@@ -31,14 +31,10 @@ def crossover_intervals():
     white = "#f1f7f3"
     previous = "#9fb1b8"
     accent = "#80ecc6"
-    figure = Figure(figsize=(10, 4.75), facecolor=background)
-    figure.text(0.06, 0.89, "The Skewes crossover", fontfamily="DejaVu Serif",
-                fontsize=31, color=white, va="center")
-    figure.text(0.061, 0.78, "An earlier upper bound for the first prime-counting crossover",
-                fontsize=12, color=previous, va="center")
-    figure.add_artist(mpl.lines.Line2D([0.06, 0.94], [0.71, 0.71],
-                                     transform=figure.transFigure, color="#32474e"))
-    ax = figure.add_axes((0.06, 0.25, 0.88, 0.39), facecolor=background)
+    figure = Figure(figsize=(10, 3.55), facecolor=background)
+    figure.text(0.06, 0.875, "An earlier upper endpoint", fontfamily="DejaVu Serif",
+                fontsize=24, color=white, va="center")
+    ax = figure.add_axes((0.06, 0.24, 0.88, 0.50), facecolor=background)
     for y, interval, color in ((1, smith, previous), (0, tapered, accent)):
         left, right = interval
         ax.hlines(y, left, right, linewidth=3, color=color, zorder=3)
@@ -63,8 +59,6 @@ def crossover_intervals():
     ax.grid(axis="x", color="#32474e", alpha=0.7)
     ax.tick_params(axis="x", colors=previous, length=0, pad=6)
     ax.spines[:].set_visible(False)
-    figure.text(0.06, 0.065, "DOMINIC BAVUSO", fontsize=9, fontweight="bold", color=white)
-    figure.text(0.94, 0.065, "NOVEMBER 2026", fontsize=9, color=previous, ha="right")
     return figure
 
 
