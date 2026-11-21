@@ -15,9 +15,9 @@ CAUCHY_RADIUS = "0.42e-9"
 DERIVATIVE_ORDER = 390
 
 
-def error_budget():
+def error_budget(cutoff=CUTOFF):
     b = iv.mpf
-    w, alpha, t, a = map(b, (CENTER, ALPHA, CUTOFF, PUBLISHED_FINITE_HEIGHT))
+    w, alpha, t, a = map(b, (CENTER, ALPHA, cutoff, PUBLISHED_FINITE_HEIGHT))
     left, right, width, radius = map(b, (LEFT_WIDTH, RIGHT_WIDTH, TAPER_WIDTH, CAUCHY_RADIUS))
     order = DERIVATIVE_ORDER
     boxes = order + 1

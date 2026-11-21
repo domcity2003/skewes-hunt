@@ -31,6 +31,8 @@ python tapered.py
 
 The arithmetic has been checked with interval arithmetic and exact rational bounds. Independent review of the derivation, the original 103.8-billion-zero computation, and literature priority remains open. The exact first crossover is unknown.
 
+The [independent replay](audit.md) checks the original zero sum from the LMFDB files and can resume at any completed file.
+
 ## Finding the first crossover
 
 An upper bound gives a deadline by which a crossover has occurred. Identifying the first crossover also requires ruling out every earlier value. A finite sieve check excludes a short interval immediately above $10^{20}$, the lower endpoint reached by existing work. The gap between this range and the upper bound near $10^{316}$ remains open. [Lower-bound calculation](lower-bound.md)

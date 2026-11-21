@@ -20,17 +20,21 @@ def read_exact(stream, size):
     return data
 
 
+def manifest_hashes(manifest):
+    return {name.lstrip("*"): digest for digest, name in
+            (line.split() for line in manifest.read_text(encoding="ascii").splitlines() if line.strip())}
+
+
 def source_files(directory, manifest):
-    hashes = {name.lstrip("*"): digest for digest, name in
-              (line.split() for line in manifest.read_text(encoding="ascii").splitlines() if line.strip())}
+    hashes = manifest_hashes(manifest)
     files = sorted(directory.glob("zeros_*.dat"), key=lambda path: int(path.stem[6:]))
     if not files:
         raise ValueError("No ordinate files found")
     return [(path, hashes[path.name]) for path in files]
 
 
-def read_blocks(path, digest, height, index):
-    """Yield each block's ending height, cumulative zero count, and ordinates."""
+def read_fixed_blocks(path, digest, height, index):
+    """Yield block endpoints, ending index, and the exact 101-bit gaps from the start."""
     with path.open("rb") as stream:
         md5 = hashlib.file_digest(stream, lambda: hashlib.md5(usedforsecurity=False)).hexdigest()
         if md5 != digest:
@@ -51,11 +55,17 @@ def read_blocks(path, digest, height, index):
             upper = gaps["mid"].astype(np.uint64) + (gaps["high"].astype(np.uint64) << 32)
             upper[1:] += low[1:] < low[:-1]
             high = np.cumsum(upper, dtype=np.uint64)
-            zeros = start + np.ldexp(high.astype(np.float64), -37) + np.ldexp(low.astype(np.float64), -101)
-            if not start < zeros[0] or not zeros[-1] < end or not np.all(np.diff(zeros) > 0):
-                raise ValueError(f"Ordinates are outside the ordered block in {path.name}")
-            yield end, last, zeros
+            yield start, end, last, high, low
             height, index = end, last
+
+
+def read_blocks(path, digest, height, index):
+    """Yield each block's ending height, cumulative zero count, and ordinates."""
+    for start, end, last, high, low in read_fixed_blocks(path, digest, height, index):
+        zeros = start + np.ldexp(high.astype(np.float64), -37) + np.ldexp(low.astype(np.float64), -101)
+        if not start < zeros[0] or not zeros[-1] < end or not np.all(np.diff(zeros) > 0):
+            raise ValueError(f"Ordinates are outside the ordered block in {path.name}")
+        yield end, last, zeros
 
 
 def ordinate_blocks(directory, manifest):
