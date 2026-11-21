@@ -16,8 +16,9 @@ from tapered import (
 FIGURES = Path(__file__).resolve().parent / "figures"
 INK = "#162d3d"
 MUTED = "#536776"
-BLUE = "#126786"
-GRID = "#dbe4ea"
+BLUE = "#006a60"
+GRID = "#d9e3df"
+PAPER = "#f5f8f6"
 
 
 def crossover_intervals():
@@ -26,22 +27,44 @@ def crossover_intervals():
     smith = [float((Decimal(endpoint) - center) * scale)
              for endpoint in ("727.9513353997", "727.9513354023")]
     tapered = [-float(Decimal(LEFT_WIDTH) * scale), float(Decimal(RIGHT_WIDTH) * scale)]
-    figure = Figure(figsize=(8.4, 3.05), layout="constrained")
-    ax = figure.subplots()
-    ax.set_title("Where a crossover is guaranteed to occur", loc="left", pad=14)
-    for y, interval, color in ((1, smith, MUTED), (0, tapered, BLUE)):
+    background = "#101f24"
+    white = "#f1f7f3"
+    previous = "#9fb1b8"
+    accent = "#80ecc6"
+    figure = Figure(figsize=(10, 4.75), facecolor=background)
+    figure.text(0.06, 0.89, "The Skewes crossover", fontfamily="DejaVu Serif",
+                fontsize=31, color=white, va="center")
+    figure.text(0.061, 0.78, "An earlier upper bound for the first prime-counting crossover",
+                fontsize=12, color=previous, va="center")
+    figure.add_artist(mpl.lines.Line2D([0.06, 0.94], [0.71, 0.71],
+                                     transform=figure.transFigure, color="#32474e"))
+    ax = figure.add_axes((0.06, 0.25, 0.88, 0.39), facecolor=background)
+    for y, interval, color in ((1, smith, previous), (0, tapered, accent)):
         left, right = interval
-        ax.hlines(y, left, right, linewidth=3.5, color=color, zorder=3)
-        ax.plot([left, right], [y, y], "o", markersize=6, color=color, zorder=4)
-        ax.axvline(right, color=color, linewidth=1, linestyle=":", alpha=0.65)
-    ax.set(ylim=(-0.58, 1.43), xlim=(-1.83, 1.53), yticks=[1, 0],
-           yticklabels=["Smith (2016)\nAssuming RH", "Tapered Gaussian\nFinite verification"],
-           xlabel=r"Offset from $\log x = 727.951335401$ (billionths)")
-    ax.text(1.19, 0.49, "0.22 earlier", ha="right", va="center", color=BLUE,
-            fontsize=9.5, bbox={"facecolor": "white", "edgecolor": "none", "pad": 2})
-    ax.grid(axis="x", color=GRID)
-    ax.tick_params(axis="y", length=0, pad=8)
-    ax.spines[["top", "right", "left"]].set_visible(False)
+        ax.hlines(y, left, right, linewidth=3, color=color, zorder=3)
+        ax.plot(left, y, "o", markersize=5, color=color, zorder=4)
+        ax.plot(right, y, "o", markersize=8, markeredgewidth=1.8,
+                markerfacecolor=background, markeredgecolor=color, zorder=4)
+    ax.text(-1.70, 1.25, "Smith · 2016", fontsize=12, color=previous)
+    ax.text(-1.70, 0.25, "Tapered Gaussian · candidate", fontsize=12, color=accent)
+    ax.annotate("", xy=(tapered[1], 0.51), xytext=(smith[1], 0.51),
+                arrowprops={"arrowstyle": "->", "color": accent, "lw": 1.4,
+                            "shrinkA": 0, "shrinkB": 0})
+    for right, y, color in ((tapered[1], 0, accent), (smith[1], 1, previous)):
+        ax.vlines(right, min(0.51, y), max(0.51, y), color=color,
+                  linewidth=0.8, linestyle=":", alpha=0.8)
+    ax.text(tapered[1] - 0.07, 0.51, "0.22 billionths earlier", ha="right",
+            va="center", color=accent, fontsize=10.5,
+            bbox={"facecolor": background, "edgecolor": "none", "pad": 2})
+    ax.set(ylim=(-0.43, 1.51), xlim=(-1.73, 1.49), yticks=[],
+           xticks=[-1.5, -1, -0.5, 0, 0.5, 1])
+    ax.set_xlabel(r"Offset from $\log x = 727.951335401$ (billionths)",
+                  color=previous, labelpad=12)
+    ax.grid(axis="x", color="#32474e", alpha=0.7)
+    ax.tick_params(axis="x", colors=previous, length=0, pad=6)
+    ax.spines[:].set_visible(False)
+    figure.text(0.06, 0.065, "DOMINIC BAVUSO", fontsize=9, fontweight="bold", color=white)
+    figure.text(0.94, 0.065, "NOVEMBER 2026", fontsize=9, color=previous, ha="right")
     return figure
 
 
@@ -60,8 +83,10 @@ def taper_profile():
     floor = 1e-17
     weight = gaussian * taper
 
-    figure = Figure(figsize=(8.4, 3.4), layout="constrained")
+    figure = Figure(figsize=(8.4, 3.4), layout="constrained", facecolor=PAPER)
+    figure.get_layout_engine().set(w_pad=0.16, h_pad=0.14)
     ax = figure.subplots()
+    ax.set_facecolor(PAPER)
     ax.set_title("The taper preserves the center and removes the tails", loc="left", pad=14)
     ax.plot(s, gaussian, color=MUTED, linestyle="--", linewidth=1.6, label="Gaussian")
     ax.plot(s, np.where(weight >= floor, weight, np.nan), color=BLUE, linewidth=2.5,
