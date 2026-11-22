@@ -81,6 +81,8 @@ $$
 
 This bound allows any real part $0<\mathrm{Re}\rho<1$ for the zeros above $A$. [Revers, Lemma 4.7 and §5.2](https://arxiv.org/html/2501.04488v2#S5.SS2)
 
+The [Lean check](formal/README.md) proves the repeated integration and the per-zero decay bound from the support, smoothness, and derivative bound of the integrand.
+
 ## Arithmetic check
 
 The [interval replay](tapered.py) checks the following bound.
