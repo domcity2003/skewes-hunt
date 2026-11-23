@@ -1,0 +1,20 @@
+{
+  "completed": "2026-11-23",
+  "settings": {
+    "center": "727.951335401",
+    "alpha": "4.5e19",
+    "cutoff": 30610046000
+  },
+  "source_manifest_sha256": "6ca3534a1e967f593a93428e6479eac0992c446a105da3eeb0b7a64121808521",
+  "files": 14580,
+  "ending_file": "zeros_30607946000.dat",
+  "ending_md5": "7a6067b260db95a79509f21b8e13b6e6",
+  "zero_count": 103800788359,
+  "bytes_checked": 1349877304015,
+  "score": "1.0028636381592315",
+  "enclosure": ["1.0028628275787", "1.0028644487398"],
+  "smith_table_4_value": "1.00288049783641096204",
+  "contains_published_value": false,
+  "margin_lower_bound": "0.00001495",
+  "log_x_interval": ["727.95133539940", "727.95133540208"]
+}

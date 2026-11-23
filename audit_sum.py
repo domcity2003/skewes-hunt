@@ -99,7 +99,8 @@ def source_file(directory, name, download):
         try:
             start = perf_counter()
             subprocess.run(["curl", "--silent", "--show-error", "--fail", "--location",
-                            "--retry", "2", "--max-time", "300", "--cookie", "human=1",
+                            "--retry", "6", "--retry-all-errors", "--retry-max-time", "1200",
+                            "--connect-timeout", "30", "--max-time", "300", "--cookie", "human=1",
                             "--output", str(path), f"{ARCHIVE}/{name}"], check=True)
             yield path, perf_counter() - start
         finally:

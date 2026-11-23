@@ -2,7 +2,13 @@
 
 **Dominic Bavuso** · November 2026
 
-The [tapered Gaussian bound](tapered-bound.md) uses the value $Z=1.00288049783641096204$ reported in Smith’s Table 4. This audit recomputes $Z$ from the LMFDB ordinate files with a separate implementation. It relies on LMFDB for isolation and completeness of the zeros. The [replay](audit_sum.py) checks the archive’s checksum for each file, the consecutive block heights, and the cumulative zero counts. [Smith, Equations (49)–(50) and Table 4](https://etheses.whiterose.ac.uk/id/eprint/16409/1/The%20hunt%20for%20Skewes%27%20number.pdf) · [LMFDB dataset](https://www.lmfdb.org/zeros/zeta/)
+The [tapered Gaussian bound](tapered-bound.md) uses a two-term zero sum recomputed from LMFDB's published ordinates. The [replay](audit_sum.py) checks each file against the archive's checksum and validates block continuity and cumulative counts. The archive supplies isolation and completeness of the zeros. [Smith, Equations (49)–(50) and Table 4](https://etheses.whiterose.ac.uk/id/eprint/16409/) · [LMFDB dataset](https://www.lmfdb.org/zeros/zeta/)
+
+## Full replay
+
+The run finished on November 23, 2026 after reading 14,580 files and 103,800,788,359 ordinates through height 30,610,046,000. It checked about 1.35 TB of source files. The binary64 sum was 1.0028636381592315. The arithmetic allowance gives the outward-rounded enclosure **[1.0028628275787, 1.0028644487398]**. Its lower end leaves more than 0.00001495 in the weighted inequality. [Machine-readable result](results/zero-sum.json) · [Per-file sums](results/file-sums.csv.gz)
+
+Smith's Table 4 value of 1.00288049783641096204 lies outside the enclosure. A diagnostic through height 10,946,000 put the second term's contribution near −0.00001685969, close to the observed difference. The original computation has yet to be inspected.
 
 ## Arithmetic
 
@@ -16,7 +22,7 @@ The replay uses rounded-to-nearest binary64 arithmetic. The following estimates 
 - Write $v=g_0^2/(2\alpha)$ and $q=(\gamma^2-g_0^2)/(2\alpha)$. The scalar factor $e^{-v}$ uses the degree-17 Taylor polynomial at $-v/16$ followed by four squarings. Here $v\le 10.5$. The block correction $e^{-q}$ uses its cubic Taylor polynomial with $0\le q\le0.009$. Its omitted term has absolute size at most $0.009^4/24$. With coefficient and operation rounding, the combined absolute weight error is below $4\times10^{-10}$.
 - For $c=1/\rho+1/(\omega\rho^2)$ with $\rho=1/2+i\gamma$, the real and imaginary coefficients are evaluated by rational expressions. Their rounding errors are bounded by $10^{-12}/\gamma$ from the displayed formulas in the implementation and the bounds $\gamma>14$ and $\omega>727$. Also $|\mathrm{Re}c|+|\mathrm{Im}c|\le\sqrt{2}(1+1/(\omega\gamma))/\gamma$. Including the bounded sine, cosine and weight errors, rounding the local sum with at most 50,000 terms, and the LMFDB ordinate radius of $2.5\times10^{-31}$, the error budget is $2\times10^{-8}/\gamma$ per conjugate pair.
 
-Revers’s Lemma 4.8 bounds the sum of these allowances over the positive ordinates through the replay height. A further $10^{-14}$ covers the two levels of compensated summation. At the final cutoff the allowance is about $8.1\times10^{-7}$, compared with the prior margin of $3.26\times10^{-5}$. The replay evaluates the margin from its own lower enclosure and uses Revers’s Gaussian tail bound at the actual cutoff. [Revers, Lemma 4.8 and Equation (5.5)](https://arxiv.org/html/2501.04488v2#S4)
+Revers’s Lemma 4.8 bounds the sum of these allowances over the positive ordinates through the replay height. A further $10^{-14}$ covers the two levels of compensated summation. At the final cutoff the allowance is about $8.1\times10^{-7}$. The replay evaluates the margin from its own lower enclosure and uses Revers’s Gaussian tail bound at the actual cutoff. [Revers, Lemma 4.8 and Equation (5.5)](https://arxiv.org/html/2501.04488v2#S4)
 
 ## Validation
 
@@ -28,7 +34,7 @@ Revers’s Lemma 4.8 bounds the sum of these allowances over the positive ordina
 | Direct 60-digit checks on the first and last blocks of the final file | Absolute differences below $1.02\times10^{-23}$ |
 | Final archive header | Height $30{,}610{,}046{,}000$, cumulative count $103{,}800{,}788{,}359$ |
 
-The direct checks decoded the 13-byte offsets with Python integers and used the complex exponential formula in mpmath. The prefix through height $67{,}646{,}000$ took about 34 seconds to compute from 2.13 GB of cached data. The full audit began on November 21, 2026. The control, prefix result, and endpoint checks leave the full published sum to be verified.
+The direct checks decoded the 13-byte offsets with Python integers and used the complex exponential formula in mpmath. The prefix through height $67{,}646{,}000$ took about 34 seconds to compute from 2.13 GB of cached data. The full run resumed from its SQLite checkpoint after a download failure. The completed checkpoint passed an integrity check, and its files, hashes, and heights matched the manifest sequence.
 
 ## Running the replay
 

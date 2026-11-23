@@ -1,0 +1,275 @@
+\documentclass[11pt]{article}
+\usepackage[hmargin=1.05in,vmargin=0.95in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,booktabs,xcolor}
+\definecolor{signal}{HTML}{17665B}
+\usepackage[hidelinks,pdftitle={A tapered Gaussian bound for the prime-counting crossover},
+  pdfauthor={Dominic Bavuso}]{hyperref}
+\newtheorem{theorem}{Theorem}
+\newcommand{\lii}{\operatorname{li}}
+\newcommand{\ee}{\mathrm{e}}
+\title{\vspace{-1.5em}A tapered Gaussian bound for the prime-counting crossover}
+\author{Dominic Bavuso}
+\date{23 November 2026\\Research draft}
+
+\begin{document}
+\maketitle
+\begin{abstract}
+A compactly supported taper of Smith's Gaussian gives a candidate
+upper bound of $727.95133540208$ for the logarithm of the first $x$
+with $\pi(x)>\lii(x)$. The taper preserves most of the Gaussian weight
+and allows 390 integrations by parts above the verified zeta-zero
+height $3\times10^{12}$. A separate calculation of the two-term sum
+over $103{,}800{,}788{,}359$ published ordinates leaves a positive
+margin exceeding $1.495\times10^{-5}$ in the weighted inequality.
+\end{abstract}
+
+\section{Introduction}
+Let $\pi(x)$ count the primes at most $x$ and let $\lii(x)$ be the
+logarithmic integral in its principal value normalization. Following
+the method of Lehman, one searches for a positive average of
+$u\ee^{-u/2}(\pi(\ee^u)-\lii(\ee^u))$, where $u=\log x$.
+Saouter, Trudgian, and Demichel \cite[Lemma 9.6]{std} obtained an
+unconditional upper endpoint of $727.951336105$. At the center
+$727.951335401$, Smith \cite[Theorem 9.1]{smith} obtained
+$727.9513354023$ under the Riemann hypothesis.
+The support controls the upper bound directly. The right endpoint
+can move inward as long as the lost Gaussian mass and the remaining
+high-zero contributions fit within the positive margin. A smooth
+taper lets the left and right widths be chosen separately.
+
+\begin{theorem}[Crossover bound]
+There exists $x$ with $\pi(x)>\lii(x)$ in the interval
+\[
+727.95133539940\le \log x\le 727.95133540208.
+\]
+\end{theorem}
+The right endpoint is $2.2\times10^{-10}$ below Smith's endpoint
+on the logarithmic scale. The bound specifies an interval containing
+a point of positivity. Its right endpoint bounds the first such point
+from above. The proof uses the finite-height theorem of Platt and
+Trudgian \cite[Theorem 1]{pt}.
+
+\begin{figure}[!htbp]
+\centering
+{\setlength{\unitlength}{1pt}
+\begin{picture}(360,106)
+  \put(42,83){\small Smith (2016), assuming RH}
+  \put(42,75){\color{gray}\rule{247pt}{1.4pt}}
+  \put(42,75.7){\color{gray}\circle*{4}}
+  \put(289,75.7){\color{gray}\circle*{5}}
+  \put(294,72){\small $+1.30$}
+  \put(14,52){\small Tapered Gaussian, finite-height verification}
+  \put(14,44){\color{signal}\rule{254.6pt}{1.4pt}}
+  \put(14,44.7){\color{signal}\circle*{4}}
+  \put(268.6,44.7){\color{signal}\circle*{5}}
+  \put(274,41){\small $\color{signal}+1.08$}
+  \put(166,24){\color{gray}\line(0,1){7}}
+  \put(163,13){\small $0$}
+  \put(72,0){\small Billionths relative to $\log x=727.951335401$}
+\end{picture}}
+\caption{Each interval contains a point where $\pi(x)>\lii(x)$ under
+its stated hypotheses. The right edge is the upper bound.}
+\end{figure}
+
+\clearpage
+\section{Weight and finite zero sum}
+Set
+\[
+\omega=727.951335401,\quad \alpha=4.5\times10^{19},\quad
+T=30{,}610{,}046{,}000,\quad A=3\times10^{12}.
+\]
+Write $K(s)=k_0\ee^{-\alpha s^2/2}$ with $k_0=\sqrt{\alpha/(2\pi)}$.
+Use left and right widths $L=1.60\times10^{-9}$ and $R=1.08\times10^{-9}$,
+and a taper width $d=0.71\times10^{-9}$. Let $U$ be the sum of $m=391$
+independent uniforms on $[-d/(2m),d/(2m)]$. Define
+\[
+h_L=L-d/2,\qquad h_R=R-d/2,\qquad
+C(s)=\Pr\{-h_L\le s-U\le h_R\}.
+\]
+The weight $W(u)=K(u-\omega)C(u-\omega)$ has mass at most one
+and is supported on $[l,b]=[\omega-L,\omega+R]$.
+The sum to be evaluated is
+\begin{equation}\label{eq:signal}
+Z=-2\operatorname{Re}\sum_{0<\gamma\le T}
+  \left(\frac{1}{\rho}+\frac{1}{\omega\rho^2}\right)
+  \ee^{i\omega\gamma-\gamma^2/(2\alpha)},
+\qquad \rho=\tfrac12+i\gamma .
+\end{equation}
+
+\subsection{Mass removed by the taper}
+The difference $D=\int_{\mathbb R}K(s)(1-C(s))\,ds$ equals the
+probability that $G-U$ lies outside $[-h_L,h_R]$, with $G$ an
+independent centered Gaussian of variance $\alpha^{-1}$.
+The inequality $\sinh(y)/y\le\ee^{y^2/6}$ follows term by term from
+$(2j+1)!\ge6^j j!$. Thus $\mathbb{E}\ee^{tU}\le\ee^{t^2d^2/(24m)}$.
+In the convolution density, dropping $\ee^{-\alpha U^2/2}\le1$
+gives $f_{G-U}(s)\le k_0\ee^{-cs^2/2}$ with
+$c=\alpha(1-\alpha d^2/(12m))>0$. Integration on each tail yields
+\begin{equation}\label{eq:mass}
+D\le \sum_{h\in\{h_L,h_R\}}\frac{k_0\ee^{-ch^2/2}}{ch}.
+\end{equation}
+
+\subsection{Explicit formula through height \(A\)}
+Integrate Revers's explicit inequality \cite[(4.10)]{revers} against
+$W$. The bounded convergence argument of \cite[(5.1)]{revers}
+applies on $[l,b]$ after multiplication by the continuous factor $C$.
+Equivalently the product extends by zero to a symmetric interval
+about $\omega$.
+For $|\gamma|\le A$ use two terms of the expansion in
+\cite[(4.12)]{revers}. The prime-side allowance $R_1$ and
+exponential-integral remainder $R_5$ follow from
+\cite[(5.2), (5.6)]{revers} using $\int W\le1$ and the endpoints $l,b$.
+Freezing $1/u$ at $1/\omega$, then replacing $W$ by the full Gaussian
+for these zeros, costs at most
+\begin{align*}
+E_{\mathrm{recip}}&=\frac{L+R}{l\omega}\,2(0.0231050),\\
+E_{\mathrm{mass}}&=D\left(
+\frac{\log^2(A/(2\pi))}{2\pi}+2(0.9321)+\frac{2(0.0231050)}{\omega}\right).
+\end{align*}
+Here Lemmas 4.7(b) and 4.8 of \cite{revers} bound the sums of
+$|\gamma|^{-2}$ and $|\gamma|^{-1}$ over both signs. The Gaussian
+transform then gives \eqref{eq:signal} and the terms with
+$T<|\gamma|\le A$. The latter are bounded by $R_4$ in
+\cite[(5.5)]{revers}, extending the absolute majorant with
+coefficient $\gamma^{-1}+\omega^{-1}\gamma^{-2}$ to all
+positive ordinates above $T$ and including their conjugates.
+In the notation of this paper these three majorants are
+\begin{align*}
+R_1&=\frac{2}{l}+\frac{8}{l^2}+\frac{58.56}{l^3}
+      +b\log(2)\ee^{-l/2}+\frac{2b}{\log(2)}\ee^{-l/6},\\
+R_4&=\left(1+\frac1{\omega T}\right)\ee^{-T^2/(2\alpha)}
+      \left(\frac{\alpha}{\pi T^2}\log\frac{T}{2\pi}
+      +\frac{8\log T}{T}+\frac{4\alpha}{T^3}\right),\\
+R_5&=\frac{0.003}{l^2}.
+\end{align*}
+
+\section{The tail above the verified height}
+Set $n=m-1=390$, $\lambda=2m/d$, and $r=0.42\times10^{-9}$.
+The cutoff is a convolution of an interval indicator and $m$
+uniform densities. The distributional derivative of each density
+has total variation $\lambda$. Applying $j\le n$ derivatives to
+distinct factors gives $\|C^{(j)}\|_\infty\le\lambda^j$.
+At least one undifferentiated density remains, whose translation
+continuity in $L^1$ gives a continuous derivative after convolution
+with the bounded indicator and the signed measures.
+These derivatives are supported in $[-L,R]$ and vanish at its endpoints.
+
+For $\rho=\beta+i\gamma$ with $|\gamma|>A$ and $0<\beta<1$, put
+\[
+F_\rho(z)=\rho z\ee^{-\rho z}\lii(\ee^{\rho z})
+          \ee^{-\alpha(z-\omega)^2/2},
+\]
+using the exponential-integral branch of \cite[(4.11)]{revers}.
+On a disk of radius $r$ about $u\in[l,b]$ we have
+$\operatorname{Re}z\ge l-r$ and
+$|\operatorname{Im}(\rho z)|\ge|\gamma|\operatorname{Re}z-r$.
+Since $r<l/5$ and $|\gamma|>4$, the latter lower bound exceeds
+$|\rho z|/2$, as follows from $|z|\le\sqrt{17}\operatorname{Re}z/4$
+and $|\rho|\le\sqrt{17}|\gamma|/4$.
+Consequently $F_\rho$ is analytic there and the one-term estimate
+in \cite[(4.12)]{revers} gives
+\[
+|F_\rho(z)|\le B=\left(1+\frac{4}{A(l-r)}\right)\ee^{\alpha r^2/2}.
+\]
+Cauchy's estimate gives $|F_\rho^{(j)}(u)|\le Bj!/r^j$.
+The product rule and $n<\lambda r$ then give
+\[
+\left|(C F_\rho)^{(n)}(u)\right|
+\le B\lambda^n\sum_{j=0}^n\frac{n!}{(n-j)!(\lambda r)^j}
+\le \frac{B\lambda^n}{1-n/(\lambda r)},
+\]
+where the cutoff in the product is evaluated at $u-\omega$.
+Integrating each zero term by parts $n$ times against
+$\ee^{(\rho-1/2)u}$ gives a factor $|\rho-1/2|^{-n}$.
+All boundary terms vanish. Since $|\rho|,|\rho-1/2|\ge|\gamma|$,
+the contribution per signed ordinate is bounded by
+$k_0\ee^{b/2}(L+R)B\lambda^n/[(1-n/(\lambda r))|\gamma|^{n+1}]$.
+Summing with \cite[Lemma 4.7(a)]{revers} proves absolute convergence
+of the integrated series and gives
+\[
+E_{\mathrm{high}}\le
+\frac{2\log(A)\,k_0\ee^{b/2}(L+R)B}{1-n/(\lambda r)}
+\left(\frac{\lambda}{A}\right)^n .
+\]
+
+\section{Numerical replay and conclusion}
+The ordinate files are those provided by the LMFDB \cite{lmfdb}.
+The replay checked file hashes, continuity of block heights, and
+cumulative zero counts across $14{,}580$ files. The published
+archive supplies isolation and completeness. The implementation
+reduces the large phase with integer arithmetic at each dyadic
+block start and handles the local offset in binary64. It evaluates
+the trigonometric and exponential factors with Taylor polynomials.
+The accompanying audit lists the domains, remainders, and rounding
+bounds behind the allowance of $2\times10^{-8}/\gamma$ per pair.
+Summing with \cite[Lemma 4.8]{revers} and allowing $10^{-14}$ for
+the outer summation gives the outward-rounded enclosure
+\[
+1.0028628275787\ \le Z\le\ 1.0028644487398 .
+\]
+The score before applying the allowance was $1.0028636381592315$.
+The enclosure excludes Smith's Table 4 value $1.00288049783641096204$.
+A separate diagnostic found a contribution of about $-1.686\times10^{-5}$
+from the second term of \eqref{eq:signal} on the low-ordinate prefix.
+The difference is consistent with the size of this correction.
+The enclosure used in the theorem includes both terms.
+
+\begin{table}[htbp]
+\centering
+\begin{tabular}{lc}
+\toprule
+Term & Upper bound\\
+\midrule
+Prime-side allowance $R_1$ & $2.762686\times10^{-3}$\\
+Taper mass $E_{\mathrm{mass}}$ & $7.460\times10^{-5}$\\
+Freezing $1/u$ & $2.34\times10^{-16}$\\
+Gaussian zero tail $R_4$ & $1.02661\times10^{-5}$\\
+Exponential-integral remainder $R_5$ & $5.662\times10^{-9}$\\
+High zeros $E_{\mathrm{high}}$ & $3.150\times10^{-7}$\\
+\bottomrule
+\end{tabular}
+\caption{Rounded-up majorants for the weighted prime-counting inequality.}
+\end{table}
+
+The integrated lower bound is
+\begin{align*}
+I_W&=\int_l^b W(u)\,u\ee^{-u/2}\bigl(\pi(\ee^u)-\lii(\ee^u)\bigr)\,du\\
+&\ge Z-1-R_1-R_4-R_5-E_{\mathrm{recip}}-E_{\mathrm{mass}}-E_{\mathrm{high}}
+>1.495\times10^{-5}.
+\end{align*}
+Since $W$ is nonnegative, the prime-counting error must be positive
+at some $u\in[l,b]$. Substituting the support endpoints gives the
+stated interval.
+
+\paragraph{Reproducibility and review.}
+The \href{https://github.com/domcity2003/skewes-hunt}{companion repository}
+contains the numerical replay, the error budget, and a Lean check of the
+integration-by-parts step under its analytic hypotheses.
+The full analytical derivation and arithmetic budget await external review.
+Generative AI (\mbox{OpenAI Codex}) assisted with exploration of the method,
+implementation, checking, and manuscript preparation.
+
+\begin{thebibliography}{9}
+\bibitem{std}
+Y. Saouter, T. Trudgian, and P. Demichel,
+\emph{A still sharper region where $\pi(x)-\lii(x)$ is positive},
+Math. Comp. 84 (2015), 2433--2446.
+\href{https://doi.org/10.1090/S0025-5718-2015-02930-5}{doi:10.1090/S0025-5718-2015-02930-5}.
+\bibitem{smith}
+C. Smith, \emph{The hunt for Skewes' number}, PhD thesis,
+University of Sheffield, 2016.
+\url{https://etheses.whiterose.ac.uk/id/eprint/16409/}.
+\bibitem{pt}
+D. J. Platt and T. S. Trudgian, \emph{The Riemann hypothesis is true
+up to $3\cdot10^{12}$}, Bull. Lond. Math. Soc. 53 (2021), 792--797.
+\url{https://arxiv.org/abs/2004.09765}.
+\bibitem{revers}
+M. Revers, \emph{New bounds in R.S. Lehman's estimates for the
+difference $\pi(x)-\lii(x)$}, J. Number Theory 279 (2026), 878--909.
+\href{https://doi.org/10.1016/j.jnt.2025.07.002}{doi:10.1016/j.jnt.2025.07.002}.
+Equation numbering follows \url{https://arxiv.org/abs/2501.04488v2}.
+\bibitem{lmfdb}
+The LMFDB Collaboration, \emph{Zeros of the Riemann zeta function},
+computed by D. J. Platt. \url{https://www.lmfdb.org/zeros/zeta/}.
+\end{thebibliography}
+\end{document}

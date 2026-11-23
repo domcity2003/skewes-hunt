@@ -1,10 +1,10 @@
 # A Skewes upper bound from a tapered Gaussian
 
-**Dominic Bavuso** · November 21, 2026
+**Dominic Bavuso** · November 23, 2026
 
 ## Result
 
-Using the published zero sum of Smith and Platt, there exists an $x$ with $\pi(x)>\mathrm{li}(x)$ and
+Using the independently recomputed two-term zero sum, the argument gives an $x$ with $\pi(x)>\mathrm{li}(x)$ and
 
 $$
 727.95133539940\le \log x\le 727.95133540208.
@@ -12,7 +12,7 @@ $$
 
 The upper endpoint is $2.2\times10^{-10}$ lower on the log scale than Smith's Theorem 9.1. This argument uses finite RH verification. The interval extends further to the left than Smith's. The exact first crossover, independent review, and priority remain open. [Smith, Sections 8–9 and Appendix C](https://etheses.whiterose.ac.uk/16409/1/The%20hunt%20for%20Skewes%27%20number.pdf) · [Platt and Trudgian, Theorem 1](https://arxiv.org/abs/2004.09765)
 
-## Weight and published input
+## Weight and recomputed input
 
 Take $\omega=727.951335401$, $\alpha=4.5\times10^{19}$, $T=30{,}610{,}046{,}000$, and $A=3\times10^{12}$. Platt and Trudgian verify the critical line through $A$. Set $K(s)=k_0 e^{-\alpha s^2/2}$, $k_0=\sqrt{\alpha/(2\pi)}$. The combined negative zero sum of Smith's equations (49) and (50), with $M=T$, is
 
@@ -21,7 +21,7 @@ Z=-\sum_{0<|\gamma|\le T}
 \left(\frac1{\rho}+\frac1{\omega\rho^2}\right)e^{i\gamma\omega-\gamma^2/(2\alpha)}.
 $$
 
-Smith's Table 4 gives $1.00288049783641096204$ at this center. The replay uses $Z>1.0028804978364$ as a published numerical input. The 103,800,788,359-zero sum has yet to be independently recomputed here. [Smith, Sections 8–9 and Appendix C](https://etheses.whiterose.ac.uk/16409/1/The%20hunt%20for%20Skewes%27%20number.pdf)
+The full replay uses all 103,800,788,359 published ordinates and gives $Z\ge 1.0028628275787$. Smith's Table 4 reports $1.00288049783641096204$ at the same center. The [audit](audit.md) documents the difference and the arithmetic budget. [Smith, Sections 8–9 and Appendix C](https://etheses.whiterose.ac.uk/16409/1/The%20hunt%20for%20Skewes%27%20number.pdf)
 
 Choose $L=1.60\times10^{-9}$, $R=1.08\times10^{-9}$, and taper width $d=0.71\times10^{-9}$. Let $U$ be the sum of $m=391$ independent uniforms on $[-d/(2m),d/(2m)]$. Put $h_L=L-d/2$, $h_R=R-d/2$, and $C(s)=\Pr(-h_L\le s-U\le h_R)$. The weight $W(u)=K(u-\omega)C(u-\omega)$ is nonnegative, supported on $[l,b]=[\omega-L,\omega+R]$, and has mass at most one.
 
@@ -92,7 +92,7 @@ $$
 I_W &:= \int_l^b W(u)\,u e^{-u/2}
        \bigl(\pi(e^u)-\mathrm{li}(e^u)\bigr)\,du \\
     &\ge Z-1-R_1-R_4-R_5-E_{\mathrm{recip}}-E_{\mathrm{mass}}-E_{\mathrm{high}} \\
-    &> 3.26\times10^{-5}.
+    &> 1.495\times10^{-5}.
 \end{aligned}
 $$
 

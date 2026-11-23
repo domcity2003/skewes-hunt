@@ -1,10 +1,12 @@
 """Check the finite-height error budget for the tapered Gaussian."""
 
 from decimal import Decimal
+import json
+from pathlib import Path
 
 from mpmath import iv
 
-from replay_smith import ALPHA, CENTER, CUTOFF, ZERO_SUM_LOWER
+from replay_smith import ALPHA, CENTER, CUTOFF
 from unconditional import PUBLISHED_FINITE_HEIGHT, common_errors
 
 
@@ -54,19 +56,25 @@ def error_budget(cutoff=CUTOFF):
 
 def main():
     iv.dps = 60
+    result_path = Path(__file__).with_name("results") / "zero-sum.json"
+    result = json.loads(result_path.read_text(encoding="utf-8"))
+    if result["settings"] != {"center": CENTER, "alpha": ALPHA, "cutoff": CUTOFF}:
+        raise ValueError("The released zero sum uses different Gaussian parameters")
+    zero_sum_lower = result["enclosure"][0]
+    margin_floor = result["margin_lower_bound"]
     errors = error_budget()
-    margin = iv.mpf(ZERO_SUM_LOWER) - 1 - sum(errors.values())
-    if not margin > iv.mpf("0.0000326"):
+    margin = iv.mpf(zero_sum_lower) - 1 - sum(errors.values())
+    if not margin > iv.mpf(margin_floor) > 0:
         raise ArithmeticError("The conservative margin did not pass")
     lo = Decimal(CENTER) - Decimal(LEFT_WIDTH)
     hi = Decimal(CENTER) + Decimal(RIGHT_WIDTH)
     print(f"log(x) in [{lo}, {hi}]")
     print(f"cited finite verification height A={PUBLISHED_FINITE_HEIGHT}")
-    print(f"cited lower bound for negative zero sum={ZERO_SUM_LOWER}")
+    print(f"audit lower bound for negative zero sum={zero_sum_lower}")
     for label, error in errors.items():
         print(f"{label} majorant: {error}")
     print(f"lower bound from these majorants: {margin}")
-    print("Certified margin lower bound from the cited inputs: 0.0000326")
+    print(f"Conservative margin lower bound: {margin_floor}")
 
 
 if __name__ == "__main__":
