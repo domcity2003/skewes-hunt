@@ -1,9 +1,9 @@
 # When the prime count overtakes its estimate
 
-**Dominic Bavuso** · Computational number theory · Research draft
+**Dominic Bavuso** · Computational number theory · Zenodo preprint
 
-| [Read the paper (PDF)](paper/crossover.pdf) | [Check the calculation](#quick-replay) | [Inspect the results](audit.md#full-replay) |
-| :--- | :--- | :--- |
+| [Zenodo record](https://zenodo.org/records/24487272) | [Read the paper (PDF)](paper/crossover.pdf) | [Check the calculation](#quick-replay) | [Inspect the results](audit.md#full-replay) |
+| :--- | :--- | :--- | :--- |
 
 The logarithmic integral li(x) estimates how many primes there are up to x. This project asks how early the actual count, π(x), can be shown to exceed that estimate.
 
@@ -52,4 +52,4 @@ The [per-file sums](results/README.md) let readers reconstruct the reported tota
 | [Search notes](experiments.md) | Tests of an earlier candidate |
 | [Lower-bound computation](lower-bound.md) | A short interval excluded just above 10²⁰ |
 
-**Suggested citation.** Dominic Bavuso, *A tapered Gaussian bound for the prime-counting crossover*, research draft, November 2026.
+**Suggested citation.** Bavuso, D. (2026). *A tapered Gaussian bound for the prime-counting crossover* (v1). Zenodo. [DOI 10.5281/zenodo.24487272](https://doi.org/10.5281/zenodo.24487272)
